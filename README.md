@@ -53,7 +53,7 @@ server runs on port 5050
 The menu data is served at this endpoint:
 * GET `http://0.0.0.0:5050/api/menu`
 
-You should need to modify any of the server code.
+You shouldn't need to modify any of the server code.
 
 ## Client
 client runs on 3001 and proxies requests to server on port 5050
