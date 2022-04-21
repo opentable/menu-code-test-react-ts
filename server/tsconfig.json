@@ -5,7 +5,10 @@
       "target": "es6",
       "moduleResolution": "node",
       "noUnusedLocals": false,
-      "outDir": "../lib"
+      "outDir": "../lib",
+      "resolveJsonModule": true,
+      "skipLibCheck": true
     },
-    "include": ["server.ts"]
-  }
+    "include": ["server.ts"],
+    "exclude": ["node_modules"]
+}
