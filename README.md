@@ -17,6 +17,16 @@ We've prepared a simple data file which contains an example menu with prices to 
 
 Please write as clean and maintainable code as possible, and make sure that it's covered by test cases.
 
+## Technology Requirements
+* Please use modern functional React
+    * using hooks and other modern features are encouraged
+* Feel free to install and use any global state management library you like
+    * if you do go this route, Redux is encouraged
+* Please make good use of TypeScript to show your skills in this area
+    * If you need to install any types for your libraries, don't hesitate to do so
+* Feel free to install and use any basic component libraries you'd like to use
+* Use the Fetch API for data transfer between client and server
+* You can opt to not use css and go with other styling technologies like scss & styled-components but be aware you are responsible for managing the time it takes to set up
 
 ## Rules
 
@@ -27,7 +37,6 @@ This restaurant unfortunately has a number of rules about the meals that can be 
 - Each diner cannot have more than one of the same course.
 - There is only one piece of cheesecake left.
 - Pierre the snobby waiter will not let you have prawn cocktail and salmon fillet in the same meal.
-
 
 ## Acceptance criteria
 
@@ -58,12 +67,12 @@ npm run start
 
 Chrome can be a little annoying about local development.
 
-If chrome is blocking you from running locally due to ssl: 
+If chrome is blocking you from running locally due to ssl:
 * paste this into the url: `chrome://flags/#allow-insecure-localhost`
 * Enable the toggle for this setting
 
-If chrome is redirecting your app to https: 
+If chrome is redirecting your app to https:
 * then go to`chrome://net-internals/#hsts`
 * Scroll to the bottom and delete the security policy for `localhost`:
-![img.png](img.png)
+  ![img.png](img.png)
 
