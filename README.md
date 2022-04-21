@@ -63,6 +63,9 @@ npm i
 npm run build
 npm run start
 
+The app should launch on http://localhost:3000 -- sometimes chrome will redirect you to `https` so beware of that. If you're having trouble with chrome
+redirecting you, see the section below for how to fix that.
+
 ## Troubleshooting
 
 Chrome can be a little annoying about local development.
