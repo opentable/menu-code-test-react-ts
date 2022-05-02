@@ -20,7 +20,7 @@ Please write as clean and maintainable code as possible, and make sure that it's
 ## Technology Requirements
 * Please use modern functional React
     * using hooks and other modern features are encouraged
-* Feel free to install and use any global state management library you like
+* Feel free to install and use any global state management library you like if you feel its neccesary
     * if you do go this route, Redux is encouraged
 * Please make good use of TypeScript to show your skills in this area
     * If you need to install any types for your libraries, don't hesitate to do so
