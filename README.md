@@ -18,15 +18,14 @@ We've prepared a simple data file which contains an example menu with prices to 
 Please write as clean and maintainable code as possible, and make sure that it's covered by test cases.
 
 ## Technology Requirements
-* Please use modern functional React
-    * using hooks and other modern features are encouraged
-* Feel free to install and use any global state management library you like if you feel its neccesary
-    * if you do go this route, Redux is encouraged
-* Please make good use of TypeScript to show your skills in this area
-    * If you need to install any types for your libraries, don't hesitate to do so
-* Feel free to install and use any basic component libraries you'd like to use
+* Please do not use class based react components. Use hooks and other modern features as necessary
+* If global state management is needed, Redux is preferred
+* Correct use of semantic HTML and accessibility is encouraged
+* Feel free to use modern browser APIs (like Fetch)
+* Please refrain from using 3rd party component and styling libraries
 * Use the Fetch API for data transfer between client and server
-* You can opt to not use css and go with other styling technologies like scss & styled-components but be aware you are responsible for managing the time it takes to set up
+* Feel free to use scss, styled-components, etc.
+* Feel free to install any linting and code style tools
 
 ## Rules
 
