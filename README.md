@@ -21,7 +21,7 @@ Please write as clean and maintainable code as possible, and make sure that it's
 * Please do not use class based react components. Use hooks and other modern features as necessary
 * If global state management is needed, Redux is preferred
 * Correct use of semantic HTML and accessibility is encouraged
-* Feel free to use modern browser APIs (like Fetch)
+* Feel free to use modern browser APIs
 * Please refrain from using 3rd party component and styling libraries
 * Use the Fetch API for data transfer between client and server
 * Feel free to use scss, styled-components, etc.
