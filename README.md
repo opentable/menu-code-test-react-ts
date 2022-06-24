@@ -26,7 +26,7 @@ Please write as clean and maintainable code as possible, and make sure that it's
 * Use the Fetch API for data transfer between client and server
 * Feel free to use scss, styled-components, etc.
 * Feel free to install any linting and code style tools
-* Use Node version <= 14.*
+* Use Node version 12.*
 
 ## Rules
 
