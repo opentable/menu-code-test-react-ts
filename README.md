@@ -48,15 +48,15 @@ This restaurant unfortunately has a number of rules about the meals that can be 
 Please submit your program either by sending a zip file or by providing a link to a repository, dropbox, etc to your point of contact at OpenTable.
 
 ## Server
-server runs on port 5050
+Data served via the webpack devServer middleware.
 
 The menu data is served at this endpoint:
-* GET `http://0.0.0.0:5050/api/menu`
+* GET `/api/menu`
 
-You shouldn't need to modify any of the server code.
+You shouldn't need to modify any of the dev server code.
 
 ## Client
-client runs on 3001 and proxies requests to server on port 5050
+client runs on 3000
 
 ## To Run
 npm i
@@ -91,3 +91,12 @@ https://codesandbox.io/s/menu-code-test-ts-csio-579gno
 2. Copy/paste the readme into the project.
 3. Data is now served on `/menu`, not `http:0.0.0.0:5050/api/menu`;
 
+
+## Backup Environment
+
+If the candidate is having trouble getting the project running due to local issue codesandbox can be used as a backup option:
+https://codesandbox.io/s/menu-code-test-ts-csio-579gno
+
+1. Paste the menu-data.json into `server/menu-data.json`
+2. Copy/paste the readme into the project.
+3. Data is now served on `/api/menu`
