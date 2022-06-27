@@ -1,46 +1,92 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+OpenTable front-end coding challenge
+====================================
 
-## Available Scripts
+Thank you for accepting our coding challenge. Please take as much time as required to give us a good indication of your coding strengths, as your application will provide many topics of conversation in the next interview stage.
 
-In the project directory, you can run:
 
-### `npm start`
+## The task
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We would like you to build a web application.
+- The application will allow one user to select dishes on behalf of two diners.
+- The application will present a menu that will be provided and may later require adjustment by a restaurant.
+- The application will enforce some restrictions provided by the restaurant. (see [#rules](#rules))
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We've prepared a simple data file which contains an example menu with prices to help get you started. This can be found under
+`server/menu-data.json`. Please see the [#Server](#server) section for more details.
 
-### `npm test`
+Please write as clean and maintainable code as possible, and make sure that it's covered by test cases.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technology Requirements
+* Please do not use class based react components. Use hooks and other modern features as necessary
+* If global state management is needed, Redux is preferred
+* Correct use of semantic HTML and accessibility is encouraged
+* Feel free to use modern browser APIs
+* Please refrain from using 3rd party component and styling libraries
+* Use the Fetch API for data transfer between client and server
+* Feel free to use scss, styled-components, etc.
+* Feel free to install any linting and code style tools
+* Use Node version 12.*
 
-### `npm run build`
+## Rules
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_To recap, you will build an interface that allows a user to select dishes for a fixed party of **two diners**._
+This restaurant unfortunately has a number of rules about the meals that can be ordered.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Each person must have at least two courses, one of which must be a main.
+- Each diner cannot have more than one of the same course.
+- There is only one piece of cheesecake left.
+- Pierre the snobby waiter will not let you have prawn cocktail and salmon fillet in the same meal.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Acceptance criteria
 
-### `npm run eject`
+- The total bill amount is displayed when at least one dish has been selected.
+- An error message is displayed when I try to select an invalid menu combination.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Submission
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Please submit your program either by sending a zip file or by providing a link to a repository, dropbox, etc to your point of contact at OpenTable.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Server
+Data served via the webpack devServer middleware.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The menu data is served at this endpoint:
+* GET `/api/menu`
 
-## Learn More
+You shouldn't need to modify any of the dev server code.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Client
+client runs on 3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## To Run
+npm i
+
+npm run build
+
+npm run start
+
+The app should launch on http://localhost:3000 -- sometimes chrome will redirect you to `https` so beware of that. If you're having trouble with chrome
+redirecting you, see the section below for how to fix that.
+
+## Troubleshooting
+
+Chrome can be a little annoying about local development.
+
+If chrome is blocking you from running locally due to ssl:
+* paste this into the url: `chrome://flags/#allow-insecure-localhost`
+* Enable the toggle for this setting
+
+If chrome is redirecting your app to https:
+* then go to`chrome://net-internals/#hsts`
+* Scroll to the bottom and delete the security policy for `localhost`:
+  ![img.png](img.png)
+
+
+## Backup Environment
+
+If the candidate is having trouble getting the project running due to local issue codesandbox can be used as a backup option:
+https://codesandbox.io/s/menu-code-test-ts-csio-579gno
+
+1. Paste the menu-data.json into `server/menu-data.json`
+2. Copy/paste the readme into the project.
+3. Data is now served on `/api/menu`
