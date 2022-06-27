@@ -95,7 +95,7 @@ https://codesandbox.io/s/menu-code-test-ts-csio-579gno
 ## Backup Environment
 
 If the candidate is having trouble getting the project running due to local issue codesandbox can be used as a backup option:
-https://codesandbox.io/s/menu-code-test-ts-csio-579gno
+https://codesandbox.io/s/menu-code-test-ts-gpjllm
 
 1. Paste the menu-data.json into `server/menu-data.json`
 2. Copy/paste the readme into the project.
