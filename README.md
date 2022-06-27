@@ -80,4 +80,14 @@ If chrome is redirecting your app to https:
 * then go to`chrome://net-internals/#hsts`
 * Scroll to the bottom and delete the security policy for `localhost`:
   ![img.png](img.png)
+  
+  
+## Backup Environment
+
+If the candidate is having trouble getting the project running due to local issue codesandbox can be used as a backup option:
+https://codesandbox.io/s/menu-code-test-ts-csio-579gno
+
+1. Paste the menu-data.json into `src/server/menu-data.js`
+2. Copy/paste the readme into the project.
+3. Data is now served on `/menu`, not `http:0.0.0.0:5050/api/menu`;
 
