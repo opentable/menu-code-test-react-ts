@@ -2,7 +2,7 @@ import { Divider } from '@mui/material'
 import Box from '@mui/material/Box'
 import { FC, useState } from 'react'
 import { ErrorTypes, IMenu } from '../../types'
-import { DinerMenuFormAndSelection } from '../diner-menu-form-container'
+import { DinerMenuSelectionContainer } from '../diner-menu-selection-container'
 import { validateCrossMenu, validateOwnMenu } from '../../validate-menu'
 import { TotalSum } from './total-sum'
 
@@ -122,7 +122,7 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
     return (
         <Box width="100%" component="section">
             <Box display="flex" justifyContent="space-evenly">
-                <DinerMenuFormAndSelection
+                <DinerMenuSelectionContainer
                     dinerTitle="Diner A"
                     foodMenu={foodMenu}
                     menuSelected={menuSelected.dinerA}
@@ -130,7 +130,7 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
                     handleMenuSelectionForDiner={handleMenuSelectionForDinerA}
                 />
                 <Divider orientation="vertical" flexItem={true} />
-                <DinerMenuFormAndSelection
+                <DinerMenuSelectionContainer
                     dinerTitle="Diner B"
                     foodMenu={foodMenu}
                     menuSelected={menuSelected.dinerB}

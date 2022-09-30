@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { CourseType, IDish, IMenu } from '../../types'
 import { CourseTable } from './course-table'
 
-type MenuFormProps = {
+type MenuSelectionProps = {
     foodMenu: IMenu
     menuSelected: IMenu
     setMenuSelected: (foodMenu: IMenu) => void
@@ -17,7 +17,7 @@ export type FormFieldValues = {
     desserts: FormValueType[]
 }
 
-export const MenuForm: FC<MenuFormProps> = ({
+export const MenuSelection: FC<MenuSelectionProps> = ({
     foodMenu,
     menuSelected,
     setMenuSelected,

@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box'
 import { FC } from 'react'
 import { ErrorTypes, IMenu } from '../types'
-import { MenuForm } from './menu-form'
 import { MenuSelection } from './menu-selection'
+import { DishSelectedDisplay } from './dish-selected-display'
 
-type DinerMenuFormAndSelectionProps = {
+type DinerMenuSelectionContainerProps = {
     dinerTitle: string
     foodMenu: IMenu
     handleMenuSelectionForDiner: (menu: IMenu) => void
@@ -12,7 +12,7 @@ type DinerMenuFormAndSelectionProps = {
     menuError: ErrorTypes
 }
 
-export const DinerMenuFormAndSelection: FC<DinerMenuFormAndSelectionProps> = ({
+export const DinerMenuSelectionContainer: FC<DinerMenuSelectionContainerProps> = ({
     dinerTitle,
     foodMenu,
     menuError,
@@ -27,14 +27,14 @@ export const DinerMenuFormAndSelection: FC<DinerMenuFormAndSelectionProps> = ({
             <Box display="flex" justifyContent="space-evenly" width="100%">
                 <Box component="article" width="50%" mr="5em" ml="5em">
                     <h2>Menu</h2>
-                    <MenuForm
+                    <MenuSelection
                         foodMenu={foodMenu}
                         menuSelected={menuSelected}
                         setMenuSelected={handleMenuSelectionForDiner}
                     />
                 </Box>
                 <Box component="article" width="50%" mr="5em" ml="5em">
-                    <MenuSelection menu={menuSelected} error={menuError} />
+                    <DishSelectedDisplay menu={menuSelected} error={menuError} />
                 </Box>
             </Box>
         </Box>

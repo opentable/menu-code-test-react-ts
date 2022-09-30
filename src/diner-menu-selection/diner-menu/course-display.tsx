@@ -10,11 +10,11 @@ const StyledBoxIndent = styled(Box)`
     }
 `
 
-type MenuCourseDisplayProps = {
+type CourseDisplayProps = {
     courseDishes: IDish[]
 }
 
-export const MenuCourseDisplay: FC<MenuCourseDisplayProps> = ({
+export const CourseDisplay: FC<CourseDisplayProps> = ({
     courseDishes,
 }) => {
     if (size(courseDishes) === 0) {

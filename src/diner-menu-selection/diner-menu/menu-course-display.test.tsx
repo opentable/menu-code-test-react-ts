@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { IDish } from '../../types'
-import { MenuCourseDisplay } from './menu-course-display'
+import { CourseDisplay } from './course-display'
 
 describe('<MenuCourseDisplay />', () => {
     it('should return a message when there are no dishes selected', () => {
@@ -8,7 +8,7 @@ describe('<MenuCourseDisplay />', () => {
         const courseDishes: IDish[] = []
 
         // Act
-        render(<MenuCourseDisplay courseDishes={courseDishes} />)
+        render(<CourseDisplay courseDishes={courseDishes} />)
 
         // Assert
         const noDishesText = screen.getByText(/no dishes selected/gi)
@@ -20,7 +20,7 @@ describe('<MenuCourseDisplay />', () => {
         const courseDishes: IDish[] = [{ id: 1, name: 'Icecream', price: 11 }]
 
         // Act
-        render(<MenuCourseDisplay courseDishes={courseDishes} />)
+        render(<CourseDisplay courseDishes={courseDishes} />)
 
         // Assert
         const dishText = screen.getByText(/icecream/gi)

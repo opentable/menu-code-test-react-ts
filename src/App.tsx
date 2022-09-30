@@ -3,8 +3,8 @@ import { isEmpty } from 'lodash/fp'
 import { useEffect, useState } from 'react'
 import CircularProgress from '@mui/material/CircularProgress'
 import './App.css'
-import { DinerMenu } from './components/diner-menu'
-import { RestaurantNameBar } from './components/restaurant-name-bar'
+import { DinerMenu } from './diner-menu-selection/diner-menu'
+import { RestaurantNameHeaderBar } from './diner-menu-selection/restaurant-name-header-bar'
 import { IMenu } from './types'
 
 const loadMenu = async () => {
@@ -16,7 +16,7 @@ const loadMenu = async () => {
 const MenuLoading = () => {
     return (
         <Box>
-            <RestaurantNameBar />
+            <RestaurantNameHeaderBar />
             <Box
                 component="section"
                 display="flex"
@@ -50,7 +50,7 @@ function App() {
 
     return (
         <Box>
-            <RestaurantNameBar />
+            <RestaurantNameHeaderBar />
             <DinerMenu foodMenu={foodMenu} />
         </Box>
     )

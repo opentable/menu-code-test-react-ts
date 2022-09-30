@@ -1,14 +1,14 @@
 import Box from '@mui/material/Box'
 import { ErrorTypes, IMenu } from '../types'
 import { ErrorMessage } from './diner-menu/error-message'
-import { MenuCourseDisplay } from './diner-menu/menu-course-display'
+import { CourseDisplay } from './diner-menu/course-display'
 
-type MenuSelectionProps = {
+type DishSelectedDisplayProps = {
     menu: IMenu
     error: ErrorTypes
 }
 
-export const MenuSelection = ({ menu, error }: MenuSelectionProps) => {
+export const DishSelectedDisplay = ({ menu, error }: DishSelectedDisplayProps) => {
     const { starters, mains, desserts } = menu
 
     return (
@@ -17,15 +17,15 @@ export const MenuSelection = ({ menu, error }: MenuSelectionProps) => {
             <ErrorMessage errorCode={error} />
             <Box>
                 <h4>Starters:</h4>
-                <MenuCourseDisplay courseDishes={starters} />
+                <CourseDisplay courseDishes={starters} />
             </Box>
             <Box>
                 <h4>Mains:</h4>
-                <MenuCourseDisplay courseDishes={mains} />
+                <CourseDisplay courseDishes={mains} />
             </Box>
             <Box>
                 <h4>Desserts:</h4>
-                <MenuCourseDisplay courseDishes={desserts} />
+                <CourseDisplay courseDishes={desserts} />
             </Box>
         </Box>
     )
