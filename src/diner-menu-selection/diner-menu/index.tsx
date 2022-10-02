@@ -58,17 +58,17 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
 
     const handleMenuSelectionForDinerA = (menuForDinerA: IMenu) => {
         const ownMenuError = validateOwnMenu(menuForDinerA)
-        const crossMenuError = validateCrossMenu({
+        const crossMenuError = validateCrossMenu('A', {
             dinerAMenu: menuForDinerA,
             dinerBMenu: menuSelected.dinerB,
         })
 
-        const error = getErrorCode(ownMenuError, crossMenuError)
+        const error = getErrorCode(ownMenuError, crossMenuError.dinerAError)
 
         if (error !== 'NO_ERROR') {
             setMenuError((prevValue) => ({
                 dinerA: error,
-                dinerB: prevValue.dinerB,
+                dinerB: crossMenuError.dinerBError,
             }))
 
             setMenuSelected((prevValue) => ({
@@ -85,23 +85,26 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
         }))
         setMenuError((prevValue) => ({
             dinerA: 'NO_ERROR',
-            dinerB: prevValue.dinerB,
+            dinerB:
+                prevValue.dinerB === 'NO_ERROR'
+                    ? prevValue.dinerB
+                    : crossMenuError.dinerBError,
         }))
     }
 
     const handleMenuSelectionForDinerB = (menuForDinerB: IMenu) => {
         const ownMenuError = validateOwnMenu(menuForDinerB)
-        const crossMenuError = validateCrossMenu({
+        const crossMenuError = validateCrossMenu('B', {
             dinerBMenu: menuForDinerB,
             dinerAMenu: menuSelected.dinerA,
         })
 
-        const error = getErrorCode(ownMenuError, crossMenuError)
+        const error = getErrorCode(ownMenuError, crossMenuError.dinerBError)
 
         if (error !== 'NO_ERROR') {
             setMenuError((prevValue) => ({
                 dinerB: error,
-                dinerA: prevValue.dinerA,
+                dinerA: crossMenuError.dinerAError,
             }))
 
             setMenuSelected((prevValue) => ({
@@ -118,7 +121,10 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
         }))
         setMenuError((prevValue) => ({
             dinerB: 'NO_ERROR',
-            dinerA: prevValue.dinerA,
+            dinerA:
+                prevValue.dinerA === 'NO_ERROR'
+                    ? prevValue.dinerA
+                    : crossMenuError.dinerAError,
         }))
     }
 

@@ -28,26 +28,48 @@ type ValidateCrossMenuInput = {
     dinerAMenu: IMenu
     dinerBMenu: IMenu
 }
-type ValidateCrossMenuFn = (input: ValidateCrossMenuInput) => ErrorTypes
-export const validateCrossMenu: ValidateCrossMenuFn = cond<
-    ValidateCrossMenuInput,
-    ErrorTypes
->([
-    [
-        ({ dinerAMenu }) => !checkIfDessertIsSelected(dinerAMenu.desserts),
-        constant('NO_ERROR'),
-    ],
-    [
-        ({ dinerBMenu }) => !checkIfDessertIsSelected(dinerBMenu.desserts),
-        constant('NO_ERROR'),
-    ],
-    [
-        ({ dinerAMenu, dinerBMenu }) =>
-            haveBothDinersSelectedCheeseCake(
-                dinerAMenu.desserts,
-                dinerBMenu.desserts
-            ),
-        constant('DISHES_SOLD_OUT'),
-    ],
-    [stubTrue, constant('NO_ERROR')],
-])
+type ValidateCrossMenuReturn = {
+    dinerAError: ErrorTypes
+    dinerBError: ErrorTypes
+}
+
+export const validateCrossMenu = (
+    dinerName: 'A' | 'B',
+    input: ValidateCrossMenuInput
+) =>
+    cond<ValidateCrossMenuInput, ValidateCrossMenuReturn>([
+        [
+            ({ dinerAMenu }: Pick<ValidateCrossMenuInput, 'dinerAMenu'>) =>
+                !checkIfDessertIsSelected(dinerAMenu.desserts),
+            constant<ValidateCrossMenuReturn>({
+                dinerAError: 'NO_ERROR',
+                dinerBError: 'NO_ERROR',
+            }),
+        ],
+        [
+            ({ dinerBMenu }: Pick<ValidateCrossMenuInput, 'dinerBMenu'>) =>
+                !checkIfDessertIsSelected(dinerBMenu.desserts),
+            constant<ValidateCrossMenuReturn>({
+                dinerAError: 'NO_ERROR',
+                dinerBError: 'NO_ERROR',
+            }),
+        ],
+        [
+            ({ dinerAMenu, dinerBMenu }: ValidateCrossMenuInput) =>
+                haveBothDinersSelectedCheeseCake(
+                    dinerAMenu.desserts,
+                    dinerBMenu.desserts
+                ),
+            constant<ValidateCrossMenuReturn>({
+                dinerAError: dinerName === 'A' ? 'DISHES_SOLD_OUT' : 'NO_ERROR',
+                dinerBError: dinerName === 'B' ? 'DISHES_SOLD_OUT' : 'NO_ERROR',
+            }),
+        ],
+        [
+            stubTrue,
+            constant<ValidateCrossMenuReturn>({
+                dinerAError: 'NO_ERROR',
+                dinerBError: 'NO_ERROR',
+            }),
+        ],
+    ])(input)

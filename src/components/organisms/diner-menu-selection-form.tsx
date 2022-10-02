@@ -1,5 +1,4 @@
-import { FC, ReactNode, useState } from 'react'
-import { IMenu } from '../../types'
+import { FC, ReactNode } from 'react'
 import { DinerMenuSelectionTemplate } from '../templates'
 
 type DinerMenuSelectionFormProps = {
