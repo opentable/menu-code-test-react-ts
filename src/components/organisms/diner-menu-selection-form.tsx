@@ -8,7 +8,7 @@ type DinerMenuSelectionFormProps = {
     dishSelectionDisplay: ReactNode
 }
 
-// type MenuSelectedState = IMenu
+type MenuSelectedState = IMenu
 
 export const DinerMenuSelectionForm: FC<DinerMenuSelectionFormProps> = ({
     dinerTitle,

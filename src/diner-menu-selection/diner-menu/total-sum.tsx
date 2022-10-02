@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box'
+import { CenteredTextBox } from '../../components/atoms'
 import { IMenu } from '../../types'
 
 type TotalSumProps = {
@@ -22,14 +22,9 @@ export const TotalSum = ({ dinerA, dinerB }: TotalSumProps) => {
     const totalSum = allDishes.reduce((acc, dish) => acc + dish.price, 0)
 
     return (
-        <Box
-            component="h2"
-            display="flex"
-            justifyContent="center"
-            alignItems="baseline"
-        >
+        <CenteredTextBox>
             <h4>Total price: </h4>&nbsp;
             <p>${totalSum}</p>
-        </Box>
+        </CenteredTextBox>
     )
 }

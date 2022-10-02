@@ -1,11 +1,11 @@
-import { Box } from '@mui/material'
 import { isEmpty } from 'lodash/fp'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
+import { StoreContext } from '../../App'
+import { ColumnFlexBox } from '../../components/atoms'
+import { CourseTable } from '../../components/organisms'
 import { CourseType, IDish, IMenu } from '../../types'
-import { CourseTable } from './course-table'
 
 type MenuSelectionProps = {
-    foodMenu: IMenu
     menuSelected: IMenu
     setMenuSelected: (foodMenu: IMenu) => void
 }
@@ -18,10 +18,10 @@ export type FormFieldValues = {
 }
 
 export const MenuSelection: FC<MenuSelectionProps> = ({
-    foodMenu,
     menuSelected,
     setMenuSelected,
 }) => {
+    const foodMenu = useContext(StoreContext)
     const handleDishSelection = (
         courseType: CourseType,
         dishSelected: IDish | {}
@@ -37,7 +37,7 @@ export const MenuSelection: FC<MenuSelectionProps> = ({
     }
 
     return (
-        <Box display="flex" flexDirection="column">
+        <ColumnFlexBox>
             <CourseTable
                 courseTitle="starters"
                 courseDishes={foodMenu.starters}
@@ -55,6 +55,6 @@ export const MenuSelection: FC<MenuSelectionProps> = ({
                 courseDishes={foodMenu.desserts}
                 handleDishSelection={handleDishSelection}
             />
-        </Box>
+        </ColumnFlexBox>
     )
 }

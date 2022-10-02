@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box'
 import { FC } from 'react'
 import { ErrorTypes, IMenu } from '../types'
 import { MenuSelection } from './menu-selection'
@@ -15,13 +14,7 @@ type DinerMenuSelectionContainerProps = {
 
 export const DinerMenuSelectionContainer: FC<
     DinerMenuSelectionContainerProps
-> = ({
-    dinerTitle,
-    foodMenu,
-    menuError,
-    menuSelected,
-    handleMenuSelectionForDiner,
-}) => {
+> = ({ dinerTitle, menuError, menuSelected, handleMenuSelectionForDiner }) => {
     return (
         <DinerMenuSelectionForm
             dinerTitle={`Select menu for ${dinerTitle}`}
@@ -29,7 +22,6 @@ export const DinerMenuSelectionContainer: FC<
                 <>
                     <h2>Menu</h2>
                     <MenuSelection
-                        foodMenu={foodMenu}
                         menuSelected={menuSelected}
                         setMenuSelected={handleMenuSelectionForDiner}
                     />
