@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { ErrorTypes, IMenu } from '../types'
 import { MenuSelection } from './menu-selection'
 import { DishSelectedDisplay } from './dish-selected-display'
+import { DinerMenuSelectionForm } from '../components/organisms'
 
 type DinerMenuSelectionContainerProps = {
     dinerTitle: string
@@ -12,7 +13,9 @@ type DinerMenuSelectionContainerProps = {
     menuError: ErrorTypes
 }
 
-export const DinerMenuSelectionContainer: FC<DinerMenuSelectionContainerProps> = ({
+export const DinerMenuSelectionContainer: FC<
+    DinerMenuSelectionContainerProps
+> = ({
     dinerTitle,
     foodMenu,
     menuError,
@@ -20,23 +23,21 @@ export const DinerMenuSelectionContainer: FC<DinerMenuSelectionContainerProps> =
     handleMenuSelectionForDiner,
 }) => {
     return (
-        <Box component="section" width="50%">
-            <Box textAlign="center" component="h2" aria-label="Diner title">
-                Select menu for {dinerTitle}
-            </Box>
-            <Box display="flex" justifyContent="space-evenly" width="100%">
-                <Box component="article" width="50%" mr="5em" ml="5em">
+        <DinerMenuSelectionForm
+            dinerTitle={`Select menu for ${dinerTitle}`}
+            menuSelectionForm={
+                <>
                     <h2>Menu</h2>
                     <MenuSelection
                         foodMenu={foodMenu}
                         menuSelected={menuSelected}
                         setMenuSelected={handleMenuSelectionForDiner}
                     />
-                </Box>
-                <Box component="article" width="50%" mr="5em" ml="5em">
-                    <DishSelectedDisplay menu={menuSelected} error={menuError} />
-                </Box>
-            </Box>
-        </Box>
+                </>
+            }
+            dishSelectionDisplay={
+                <DishSelectedDisplay menu={menuSelected} error={menuError} />
+            }
+        />
     )
 }
