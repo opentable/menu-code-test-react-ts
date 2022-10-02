@@ -1,24 +1,9 @@
-import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
+import { AppBar, CenteredTextBox } from '../components/atoms'
 
 export const RestaurantNameHeaderBar = () => {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" color="primary">
-                <Toolbar>
-                    <Typography
-                        variant="h4"
-                        component="h4"
-                        sx={{ flexGrow: 1 }}
-                        align="center"
-                    >
-                        Big Belly Burger
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </Box>
+        <AppBar>
+            <CenteredTextBox Component="h2">Big Belly Burger</CenteredTextBox>
+        </AppBar>
     )
 }

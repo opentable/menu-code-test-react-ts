@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react'
 
 type BoxProps = {
     Component?: keyof JSX.IntrinsicElements
-    children: ReactNode
+    children?: ReactNode
     className?: string
 }
 

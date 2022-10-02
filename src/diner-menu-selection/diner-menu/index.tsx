@@ -1,10 +1,13 @@
-import { Divider } from '@mui/material'
-import Box from '@mui/material/Box'
 import { FC, useState } from 'react'
 import { ErrorTypes, IMenu } from '../../types'
 import { DinerMenuSelectionContainer } from '../diner-menu-selection-container'
 import { validateCrossMenu, validateOwnMenu } from '../../validate-menu'
 import { TotalSum } from './total-sum'
+import {
+    Box,
+    Divider,
+    EvenlySpacedFlexboxTemplate,
+} from '../../components/atoms'
 
 type DinerMenuProps = {
     foodMenu: IMenu
@@ -120,8 +123,8 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
     }
 
     return (
-        <Box width="100%" component="section">
-            <Box display="flex" justifyContent="space-evenly">
+        <Box Component="section">
+            <EvenlySpacedFlexboxTemplate>
                 <DinerMenuSelectionContainer
                     dinerTitle="Diner A"
                     foodMenu={foodMenu}
@@ -129,7 +132,7 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
                     menuError={menuError.dinerA}
                     handleMenuSelectionForDiner={handleMenuSelectionForDinerA}
                 />
-                <Divider orientation="vertical" flexItem={true} />
+                <Divider />
                 <DinerMenuSelectionContainer
                     dinerTitle="Diner B"
                     foodMenu={foodMenu}
@@ -137,8 +140,8 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
                     menuError={menuError.dinerB}
                     handleMenuSelectionForDiner={handleMenuSelectionForDinerB}
                 />
-            </Box>
-            <Box component="article">
+            </EvenlySpacedFlexboxTemplate>
+            <Box Component="article">
                 <TotalSum
                     dinerA={menuSelected.dinerA}
                     dinerB={menuSelected.dinerB}

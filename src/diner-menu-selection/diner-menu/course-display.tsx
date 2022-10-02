@@ -1,25 +1,23 @@
-import styled from '@emotion/styled'
-import Box from '@mui/material/Box'
 import { size } from 'lodash'
 import { FC } from 'react'
+import styled from 'styled-components'
+import { Box } from '../../components/atoms'
 import { IDish } from '../../types'
 
 const StyledBoxIndent = styled(Box)`
-    &.MuiBox-root {
-        text-indent: 10px;
-    }
+    text-indent: 10px;
+    display: flex;
+    justify-content: space-between;
 `
 
 type CourseDisplayProps = {
     courseDishes: IDish[]
 }
 
-export const CourseDisplay: FC<CourseDisplayProps> = ({
-    courseDishes,
-}) => {
+export const CourseDisplay: FC<CourseDisplayProps> = ({ courseDishes }) => {
     if (size(courseDishes) === 0) {
         return (
-            <StyledBoxIndent component="p">
+            <StyledBoxIndent Component="p">
                 No dishes selected yet
             </StyledBoxIndent>
         )
@@ -28,12 +26,7 @@ export const CourseDisplay: FC<CourseDisplayProps> = ({
     return (
         <Box>
             {courseDishes.map((dish) => (
-                <StyledBoxIndent
-                    component="p"
-                    key={dish.id}
-                    display="flex"
-                    justifyContent="space-between"
-                >
+                <StyledBoxIndent Component="p" key={dish.id}>
                     <Box>{dish.name}</Box>
                     <Box>${dish.price}</Box>
                 </StyledBoxIndent>

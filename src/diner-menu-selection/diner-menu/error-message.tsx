@@ -1,13 +1,11 @@
-import styled from '@emotion/styled'
-import Box from '@mui/material/Box'
 import { FC } from 'react'
+import styled from 'styled-components'
+import { Box } from '../../components/atoms'
 import { ErrorTypes } from '../../types'
 
 const StyledErrorBox = styled(Box)`
-    &.MuiBox-root {
-        color: #cd2026;
-        font-weight: bold;
-    }
+    color: #cd2026;
+    font-weight: bold;
 `
 
 const getErrorMessage = (errorCode: ErrorTypes): string => {
@@ -29,5 +27,9 @@ type ErrorMessageProps = {
 export const ErrorMessage: FC<ErrorMessageProps> = ({ errorCode }) => {
     const errorMessage = getErrorMessage(errorCode)
 
-    return <StyledErrorBox component="p">{errorMessage}</StyledErrorBox>
+    return (
+        <StyledErrorBox>
+            <Box Component="p">{errorMessage}</Box>
+        </StyledErrorBox>
+    )
 }
