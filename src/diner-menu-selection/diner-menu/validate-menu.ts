@@ -5,8 +5,8 @@ import {
     checkIfMisCombinationIsSelected,
     checkIfDessertIsSelected,
     haveBothDinersSelectedCheeseCake,
-} from './helpers'
-import { ErrorTypes, IMenu } from './types'
+} from '../../helpers'
+import { ErrorTypes, IMenu } from '../../types'
 
 type ValidateOwnMenuFn = (menuSelected: IMenu) => ErrorTypes
 export const validateOwnMenu: ValidateOwnMenuFn = cond<IMenu, ErrorTypes>([

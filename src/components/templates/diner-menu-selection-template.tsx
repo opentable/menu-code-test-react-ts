@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 import styled from 'styled-components'
-import { DinerTitleText, EvenlySpacedFlexboxTemplate } from '../atoms'
+import { DinerTitleText, EvenlySpacedFlexbox } from '../atoms'
 
 type DinerMenuSelectionTemplateProps = {
     dinerTitle: string
@@ -24,10 +24,10 @@ export const DinerMenuSelectionTemplate: FC<
     return (
         <StyledMenuSection>
             <DinerTitleText dinerTitle={dinerTitle} />
-            <EvenlySpacedFlexboxTemplate>
+            <EvenlySpacedFlexbox>
                 <StyledArticle>{menuSelectionForm}</StyledArticle>
                 <StyledArticle>{dishSelectionDisplay}</StyledArticle>
-            </EvenlySpacedFlexboxTemplate>
+            </EvenlySpacedFlexbox>
         </StyledMenuSection>
     )
 }

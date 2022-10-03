@@ -1,4 +1,4 @@
-import { ErrorTypes, IMenu } from './types'
+import { ErrorTypes, IMenu } from '../../types'
 import { validateOwnMenu } from './validate-menu'
 
 describe('validateOwnMenu', () => {

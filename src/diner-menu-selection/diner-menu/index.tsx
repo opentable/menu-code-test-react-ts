@@ -1,13 +1,9 @@
 import { FC, useState } from 'react'
 import { ErrorTypes, IMenu } from '../../types'
 import { DinerMenuSelectionContainer } from '../diner-menu-selection-container'
-import { validateCrossMenu, validateOwnMenu } from '../../validate-menu'
+import { validateCrossMenu, validateOwnMenu } from './validate-menu'
 import { TotalSum } from './total-sum'
-import {
-    Box,
-    Divider,
-    EvenlySpacedFlexboxTemplate,
-} from '../../components/atoms'
+import { Box, Divider, EvenlySpacedFlexbox } from '../../components/atoms'
 
 type DinerMenuProps = {
     foodMenu: IMenu
@@ -130,7 +126,7 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
 
     return (
         <Box Component="section">
-            <EvenlySpacedFlexboxTemplate>
+            <EvenlySpacedFlexbox>
                 <DinerMenuSelectionContainer
                     dinerTitle="Diner A"
                     foodMenu={foodMenu}
@@ -146,7 +142,7 @@ export const DinerMenu: FC<DinerMenuProps> = ({ foodMenu }) => {
                     menuError={menuError.dinerB}
                     handleMenuSelectionForDiner={handleMenuSelectionForDinerB}
                 />
-            </EvenlySpacedFlexboxTemplate>
+            </EvenlySpacedFlexbox>
             <Box Component="article">
                 <TotalSum
                     dinerA={menuSelected.dinerA}
