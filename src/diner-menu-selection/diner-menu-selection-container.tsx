@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { ErrorTypes, IMenu } from '../types'
 import { MenuSelection } from './menu-selection'
-import { DishSelectedDisplay } from './dish-selected-display'
+import { DishesSelected } from './dishes-selected'
 import { DinerMenuSelectionForm } from '../components/organisms'
 
 type DinerMenuSelectionContainerProps = {
@@ -28,7 +28,7 @@ export const DinerMenuSelectionContainer: FC<
                 </>
             }
             dishSelectionDisplay={
-                <DishSelectedDisplay menu={menuSelected} error={menuError} />
+                <DishesSelected menu={menuSelected} error={menuError} />
             }
         />
     )

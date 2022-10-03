@@ -10,21 +10,25 @@ const StyledBoxIndent = styled(Box)`
     justify-content: space-between;
 `
 
-type CourseDisplayProps = {
+export type CourseDisplayProps = {
     courseDishes: IDish[]
 }
 
 export const CourseDisplay: FC<CourseDisplayProps> = ({ courseDishes }) => {
     if (size(courseDishes) === 0) {
         return (
-            <StyledBoxIndent Component="p">
+            <StyledBoxIndent
+                Component="p"
+                aria-label="No dishes selected"
+                data-testid="no-dishes-selected"
+            >
                 No dishes selected yet
             </StyledBoxIndent>
         )
     }
 
     return (
-        <Box>
+        <Box data-testid="dishes-selected">
             {courseDishes.map((dish) => (
                 <StyledBoxIndent Component="p" key={dish.id}>
                     <Box>{dish.name}</Box>

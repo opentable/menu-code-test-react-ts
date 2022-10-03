@@ -1,7 +1,7 @@
 import { CenteredTextBox } from '../../components/atoms'
 import { IMenu } from '../../types'
 
-type TotalSumProps = {
+export type TotalSumProps = {
     dinerA: IMenu
     dinerB: IMenu
 }

@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 import { CourseType, IDish } from '../../types'
 import { RadioGroup } from '../molecules'
 
-type CourseTableProps = {
+type CourseProps = {
     courseTitle: CourseType
     courseDishes: IDish[]
     handleDishSelection: (
@@ -12,7 +12,7 @@ type CourseTableProps = {
     ) => void
 }
 
-export const CourseTable: FC<CourseTableProps> = ({
+export const Course: FC<CourseProps> = ({
     courseTitle,
     courseDishes,
     handleDishSelection,

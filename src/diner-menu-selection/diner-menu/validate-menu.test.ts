@@ -1,5 +1,10 @@
 import { ErrorTypes, IMenu } from '../../types'
-import { validateOwnMenu } from './validate-menu'
+import {
+    validateCrossMenu,
+    ValidateCrossMenuInput,
+    ValidateCrossMenuReturn,
+    validateOwnMenu,
+} from './validate-menu'
 
 describe('validateOwnMenu', () => {
     it('should check if mains dish is selected', () => {
@@ -52,5 +57,142 @@ describe('validateOwnMenu', () => {
         const result = validateOwnMenu(menuSelected)
         // Assert
         expect(result).toBe<ErrorTypes>('NO_ERROR')
+    })
+})
+
+describe('validateCrossMenu', () => {
+    it('should return no error for diner A when dish other than cheesecake is selected', () => {
+        // Arrange
+        const input: ValidateCrossMenuInput = {
+            dinerAMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 1, name: 'Tiramisu', price: 5 }],
+            },
+            dinerBMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 3, name: 'Toffee', price: 5 }],
+            },
+        }
+
+        const expected: ValidateCrossMenuReturn = {
+            dinerAError: 'NO_ERROR',
+            dinerBError: 'NO_ERROR',
+        }
+
+        // Act
+        const result = validateCrossMenu('A', input)
+
+        // Assert
+        expect(result).toEqual(expected)
+    })
+
+    it('should return no error for diner B when dish other than cheesecake is selected', () => {
+        // Arrange
+        const input: ValidateCrossMenuInput = {
+            dinerAMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 1, name: 'Tiramisu', price: 5 }],
+            },
+            dinerBMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 3, name: 'Toffee', price: 5 }],
+            },
+        }
+
+        const expected: ValidateCrossMenuReturn = {
+            dinerAError: 'NO_ERROR',
+            dinerBError: 'NO_ERROR',
+        }
+
+        // Act
+        const result = validateCrossMenu('B', input)
+
+        // Assert
+        expect(result).toEqual(expected)
+    })
+
+    it('should return Dishes sold out if diner A has selected cheesecake already selected by diner B', () => {
+        // Arrange
+        const input: ValidateCrossMenuInput = {
+            dinerAMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 11, name: 'Cheesecake', price: 5 }],
+            },
+            dinerBMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 11, name: 'Cheesecake', price: 5 }],
+            },
+        }
+
+        const expected: ValidateCrossMenuReturn = {
+            dinerAError: 'DISHES_SOLD_OUT',
+            dinerBError: 'NO_ERROR',
+        }
+
+        // Act
+        const result = validateCrossMenu('A', input)
+
+        // Assert
+        expect(result).toEqual(expected)
+    })
+
+    it('should return Dishes sold out if diner B has selected cheesecake already selected by diner A', () => {
+        // Arrange
+        const input: ValidateCrossMenuInput = {
+            dinerAMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 11, name: 'Cheesecake', price: 5 }],
+            },
+            dinerBMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 11, name: 'Cheesecake', price: 5 }],
+            },
+        }
+
+        const expected: ValidateCrossMenuReturn = {
+            dinerAError: 'NO_ERROR',
+            dinerBError: 'DISHES_SOLD_OUT',
+        }
+
+        // Act
+        const result = validateCrossMenu('B', input)
+
+        // Assert
+        expect(result).toEqual(expected)
+    })
+
+    it('should return no error for both diners if only diner B has selected cheesecake', () => {
+        // Arrange
+        const input: ValidateCrossMenuInput = {
+            dinerAMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 1, name: 'Tiramisu', price: 5 }],
+            },
+            dinerBMenu: {
+                starters: [],
+                mains: [],
+                desserts: [{ id: 11, name: 'Cheesecake', price: 5 }],
+            },
+        }
+
+        const expected: ValidateCrossMenuReturn = {
+            dinerAError: 'NO_ERROR',
+            dinerBError: 'NO_ERROR',
+        }
+
+        // Act
+        const result = validateCrossMenu('A', input)
+
+        // Assert
+        expect(result).toEqual(expected)
     })
 })

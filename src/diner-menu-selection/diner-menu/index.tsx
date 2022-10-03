@@ -19,7 +19,7 @@ type MenuErrorState = {
     dinerB: ErrorTypes
 }
 
-const getErrorCode = (
+export const getErrorCode = (
     ownMenuError: ErrorTypes,
     crossMenuError: ErrorTypes
 ): ErrorTypes => {

@@ -1,2 +1,2 @@
 export { DinerMenuSelectionForm } from './diner-menu-selection-form'
-export { CourseTable } from './course-table'
+export { Course } from './course-table'

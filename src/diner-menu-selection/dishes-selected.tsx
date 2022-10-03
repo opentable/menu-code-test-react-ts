@@ -8,10 +8,7 @@ type DishSelectedDisplayProps = {
     error: ErrorTypes
 }
 
-export const DishSelectedDisplay = ({
-    menu,
-    error,
-}: DishSelectedDisplayProps) => {
+export const DishesSelected = ({ menu, error }: DishSelectedDisplayProps) => {
     const { starters, mains, desserts } = menu
 
     return (

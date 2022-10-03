@@ -24,11 +24,11 @@ export const validateOwnMenu: ValidateOwnMenuFn = cond<IMenu, ErrorTypes>([
     [stubTrue, constant('NO_ERROR')],
 ])
 
-type ValidateCrossMenuInput = {
+export type ValidateCrossMenuInput = {
     dinerAMenu: IMenu
     dinerBMenu: IMenu
 }
-type ValidateCrossMenuReturn = {
+export type ValidateCrossMenuReturn = {
     dinerAError: ErrorTypes
     dinerBError: ErrorTypes
 }
@@ -39,35 +39,33 @@ export const validateCrossMenu = (
 ) =>
     cond<ValidateCrossMenuInput, ValidateCrossMenuReturn>([
         [
-            ({ dinerAMenu }: Pick<ValidateCrossMenuInput, 'dinerAMenu'>) =>
-                !checkIfDessertIsSelected(dinerAMenu.desserts),
-            constant<ValidateCrossMenuReturn>({
+            ({ dinerAMenu }) => !checkIfDessertIsSelected(dinerAMenu.desserts),
+            constant({
                 dinerAError: 'NO_ERROR',
                 dinerBError: 'NO_ERROR',
             }),
         ],
         [
-            ({ dinerBMenu }: Pick<ValidateCrossMenuInput, 'dinerBMenu'>) =>
-                !checkIfDessertIsSelected(dinerBMenu.desserts),
-            constant<ValidateCrossMenuReturn>({
+            ({ dinerBMenu }) => !checkIfDessertIsSelected(dinerBMenu.desserts),
+            constant({
                 dinerAError: 'NO_ERROR',
                 dinerBError: 'NO_ERROR',
             }),
         ],
         [
-            ({ dinerAMenu, dinerBMenu }: ValidateCrossMenuInput) =>
+            ({ dinerAMenu, dinerBMenu }) =>
                 haveBothDinersSelectedCheeseCake(
                     dinerAMenu.desserts,
                     dinerBMenu.desserts
                 ),
-            constant<ValidateCrossMenuReturn>({
+            constant({
                 dinerAError: dinerName === 'A' ? 'DISHES_SOLD_OUT' : 'NO_ERROR',
                 dinerBError: dinerName === 'B' ? 'DISHES_SOLD_OUT' : 'NO_ERROR',
             }),
         ],
         [
             stubTrue,
-            constant<ValidateCrossMenuReturn>({
+            constant({
                 dinerAError: 'NO_ERROR',
                 dinerBError: 'NO_ERROR',
             }),

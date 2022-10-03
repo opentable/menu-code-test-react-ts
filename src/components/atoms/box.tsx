@@ -10,6 +10,11 @@ export const Box: FC<BoxProps> = ({
     children,
     className = '',
     Component = 'div',
+    ...props
 }) => {
-    return <Component className={className}>{children}</Component>
+    return (
+        <Component className={className} {...props}>
+            {children}
+        </Component>
+    )
 }

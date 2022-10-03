@@ -49,7 +49,7 @@ function App() {
 
     return (
         <StoreContext.Provider value={foodMenu}>
-            <Box>
+            <Box data-testid="restaurant-page-container">
                 <RestaurantNameHeaderBar />
                 <DinerMenu foodMenu={foodMenu} />
             </Box>

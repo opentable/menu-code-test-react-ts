@@ -2,7 +2,7 @@ import { isEmpty } from 'lodash/fp'
 import { FC, useContext } from 'react'
 import { StoreContext } from '../../App'
 import { ColumnFlexBox } from '../../components/atoms'
-import { CourseTable } from '../../components/organisms'
+import { Course } from '../../components/organisms'
 import { CourseType, IDish, IMenu } from '../../types'
 
 type MenuSelectionProps = {
@@ -38,19 +38,19 @@ export const MenuSelection: FC<MenuSelectionProps> = ({
 
     return (
         <ColumnFlexBox>
-            <CourseTable
+            <Course
                 courseTitle="starters"
                 courseDishes={foodMenu.starters}
                 handleDishSelection={handleDishSelection}
             />
 
-            <CourseTable
+            <Course
                 courseTitle="mains"
                 courseDishes={foodMenu.mains}
                 handleDishSelection={handleDishSelection}
             />
 
-            <CourseTable
+            <Course
                 courseTitle="desserts"
                 courseDishes={foodMenu.desserts}
                 handleDishSelection={handleDishSelection}
