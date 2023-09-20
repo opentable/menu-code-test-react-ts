@@ -42,6 +42,9 @@ This restaurant unfortunately has a number of rules about the meals that can be 
 
 - The total bill amount is displayed when at least one dish has been selected.
 - An error message is displayed when I try to select an invalid menu combination.
+- Your implementation should resemble this design: ![design.png](design.png)
+  - the design is also available under the root of this project: [design.png](design.png)
+
 
 ## Submission
 
@@ -68,6 +71,7 @@ npm run start
 The app should launch on http://localhost:3000 -- sometimes chrome will redirect you to `https` so beware of that. If you're having trouble with chrome
 redirecting you, see the section below for how to fix that.
 
+
 ## Troubleshooting
 
 Chrome can be a little annoying about local development.
@@ -80,13 +84,3 @@ If chrome is redirecting your app to https:
 * then go to`chrome://net-internals/#hsts`
 * Scroll to the bottom and delete the security policy for `localhost`:
   ![img.png](img.png)
-  
-
-## Backup Environment
-
-If the candidate is having trouble getting the project running due to local issue codesandbox can be used as a backup option:
-https://codesandbox.io/s/menu-code-test-ts-gpjllm
-
-1. Paste the menu-data.json into `server/menu-data.json`
-2. Copy/paste the readme into the project.
-3. Data is now served on `/api/menu`
